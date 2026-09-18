@@ -1,0 +1,58 @@
+/* Tokens de marca — extraídos de referencias/estilo-naria.md
+   Confirmados por ZIP corporativo + capturas reales de la app. */
+
+@font-face{font-family:"IBM Plex Sans";font-weight:300;src:url(../assets/fonts/ibm-plex-sans-latin-300-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Sans";font-weight:400;src:url(../assets/fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Sans";font-weight:500;src:url(../assets/fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;src:url(../assets/fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Sans";font-weight:700;src:url(../assets/fonts/ibm-plex-sans-latin-700-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../assets/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(../assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");}
+
+:root{
+  /* Confirmado por ZIP */
+  --blue:#6d7aff;
+  --violet:#651fff;
+  --green:#83f6c3;
+  --green-dark:#0f9e6a;
+  --navy:#0f172a;
+  --dark:#3f4041;
+  --muted:#8892a4;
+  --border:#e4e8f4;
+  --table-header-bg:#f4f6fb;
+
+  /* Confirmado por capturas de la app real */
+  --content-bg:#e8e9ee;
+  --sidebar-bg:#ffffff;
+  --sidebar-active-bg:#eaf0fe;
+  --table-header-bg-app:#eef1fb;
+  --orange:#f2994a;
+  --orange-bg:#fdead9;
+  --green-card-bg:#c9f5df;
+  --blue-card-bg:#dce6ff;
+  --purple-card-bg:#e8e1fb;
+  --purple:#7c5cf0;
+
+  /* Radios y bordes — confirmado por ZIP */
+  --radius:8px;
+  --radius-pill:99px;
+  --border-width:1px;
+
+  /* Tipografía */
+  --font-sans:"IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+  --font-mono:"IBM Plex Mono", monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+body{
+  font-family:var(--font-sans);
+  background:var(--content-bg);
+  color:var(--dark);
+  font-size:14px;
+  line-height:1.5;
+}
+h1,h2,h3{color:var(--navy);margin:0;font-weight:700;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+button{font-family:inherit;}
