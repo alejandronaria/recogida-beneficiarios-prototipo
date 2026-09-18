@@ -1,0 +1,50 @@
+/* Layout general: topbar + sidebar + panel de contenido — confirmado por capturas */
+
+#app-shell{ min-height:100%; }
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px; background:#fff; border-bottom:1px solid var(--border);
+}
+.topbar .brand{ display:flex; flex-direction:column; line-height:1.1; }
+.topbar .brand img{ height:22px; width:auto; }
+.topbar .brand .tagline{ font-size:10px; color:var(--muted); margin-top:2px; }
+.topbar .account{ font-size:13px; color:var(--navy); display:flex; align-items:center; gap:6px; }
+.topbar .account .chev{ color:var(--muted); font-size:10px; }
+
+.shell-body{ display:flex; min-height:calc(100vh - 53px); }
+
+.sidebar{
+  width:220px; flex:none; background:var(--sidebar-bg);
+  border-right:1px solid var(--border); padding:12px 0;
+}
+.sidebar .module-switch{
+  display:flex; align-items:center; gap:8px; margin:0 12px 14px;
+  padding:8px 10px; border-radius:var(--radius);
+  background:var(--sidebar-active-bg);
+  font-weight:600; color:var(--navy); font-size:13px; cursor:default;
+}
+.sidebar .module-switch .sq{ width:16px; height:16px; border-radius:4px; background:var(--blue); flex:none; }
+.sidebar .module-switch .chev{ margin-left:auto; color:var(--muted); font-size:10px; }
+
+.sidebar nav .nav-link{
+  display:flex; align-items:center; gap:10px;
+  padding:9px 16px; margin:1px 8px; border-radius:var(--radius);
+  color:var(--dark); font-size:13.5px; font-weight:500;
+}
+.sidebar nav a.nav-link:hover{ background:#f4f6fb; text-decoration:none; }
+.sidebar nav a.nav-link.active{ background:var(--sidebar-active-bg); color:var(--blue); font-weight:600; }
+.sidebar nav .nav-link .icon{ width:16px; text-align:center; flex:none; }
+.sidebar nav .new-badge{
+  margin-left:auto; font-size:9.5px; font-weight:700; color:#fff;
+  background:var(--green-dark); border-radius:var(--radius-pill);
+  padding:1px 6px;
+}
+
+.content{ flex:1; padding:24px; }
+.panel{
+  background:#fff; border-radius:var(--radius); padding:24px;
+}
+.panel + .panel{ margin-top:16px; }
+.panel-title{ font-size:19px; margin-bottom:4px; }
+.panel-subtitle{ color:var(--muted); font-size:13px; margin-bottom:18px; }

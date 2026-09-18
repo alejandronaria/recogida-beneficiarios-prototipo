@@ -1,0 +1,194 @@
+/* Componentes reutilizables — patrones confirmados por capturas + inferencias mínimas señaladas */
+
+/* Botones — confirmado por capturas: relleno sólido azul, sin variante outline observada */
+.btn{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:9px 16px; border-radius:var(--radius); border:none;
+  font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit;
+}
+.btn-primary{ background:var(--blue); color:#fff; }
+.btn-primary:hover{ background:#5c6bf0; }
+.btn-secondary{ background:var(--blue); color:#fff; opacity:.9; }
+.btn-ghost{ background:transparent; color:var(--blue); border:1px solid var(--border); }
+.btn-ghost:hover{ background:#f4f6fb; }
+.btn-danger-ghost{ background:transparent; color:#c0392b; border:1px solid #f3c9c2; }
+.btn:disabled{ opacity:.45; cursor:not-allowed; }
+
+.toolbar{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:18px; flex-wrap:wrap; }
+.toolbar-actions{ display:flex; gap:8px; flex:none; }
+
+/* Filtros — fila de inputs, confirmado por capturas */
+.filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+.field{ display:flex; flex-direction:column; gap:4px; }
+.field label{ font-size:11px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.02em; }
+.field input, .field select{
+  font-family:inherit; font-size:13px; padding:8px 10px;
+  border:1px solid var(--border); border-radius:6px; background:#fff; color:var(--dark);
+  min-width:150px;
+}
+.field input:focus, .field select:focus{ outline:2px solid var(--blue); outline-offset:1px; }
+.field-static{
+  font-family:inherit; font-size:13px; padding:8px 10px;
+  border:1px solid var(--border); border-radius:6px; background:#f4f5f7; color:var(--dark);
+  min-height:34px; display:flex; align-items:center;
+}
+
+/* Tabla — confirmado por capturas: cabecera lavanda, sin zebra, badges por estado */
+table.data-table{ width:100%; border-collapse:collapse; font-size:13px; }
+table.data-table thead th{
+  text-align:left; background:var(--table-header-bg-app); color:var(--navy);
+  font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.03em;
+  padding:10px 12px; border-bottom:1px solid var(--border);
+}
+table.data-table tbody td{ padding:12px; border-bottom:1px solid var(--border); color:var(--dark); vertical-align:middle; }
+table.data-table tbody tr:hover{ background:#fafbff; }
+table.data-table a.row-link{ color:var(--blue); font-weight:500; }
+.empty-state{ padding:40px 20px; text-align:center; color:var(--muted); font-size:13.5px; }
+
+/* Badges / pills de estado — confirmado por capturas (colores por significado) */
+.pill{ display:inline-block; padding:4px 11px; border-radius:var(--radius-pill); font-size:12px; font-weight:600; white-space:nowrap; }
+.pill-blue{ background:#fff; border:1px solid var(--blue); color:var(--blue); }
+.pill-orange{ background:var(--orange-bg); color:#b5651d; }
+.pill-green{ background:#e2fbf0; color:var(--green-dark); }
+.pill-gray{ background:#f1f2f5; color:var(--muted); }
+.pill-red{ background:#fdeceb; color:#c0392b; }
+
+/* Tarjetas KPI — confirmado por capturas (dashboard) */
+.kpi-row{ display:flex; gap:16px; flex-wrap:wrap; }
+.kpi-card{ flex:1; min-width:200px; border-radius:var(--radius); padding:18px 20px; }
+.kpi-card .kpi-icon{ font-size:16px; margin-bottom:8px; display:block; }
+.kpi-card .kpi-label{ font-size:12.5px; font-weight:600; margin-bottom:6px; }
+.kpi-card .kpi-value{ font-size:26px; font-weight:700; }
+.kpi-green{ background:var(--green-card-bg); color:var(--green-dark); }
+.kpi-orange{ background:var(--orange-bg); color:#b5651d; }
+.kpi-blue{ background:var(--blue-card-bg); color:var(--blue); }
+.kpi-purple{ background:var(--purple-card-bg); color:var(--purple); }
+
+/* Tabs — inferido, mismo lenguaje visual (radio 8px, azul de marca) */
+.tabs{ display:flex; gap:4px; border-bottom:1px solid var(--border); margin-bottom:18px; }
+.tab{ padding:9px 14px; font-size:13.5px; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:2px solid transparent; }
+.tab.active{ color:var(--blue); border-bottom-color:var(--blue); }
+.tab.disabled{ opacity:.4; cursor:default; }
+
+/* Formularios — inferido a partir del estilo de los inputs de filtro */
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; max-width:640px; }
+.form-grid .field.full{ grid-column:1 / -1; }
+@media (max-width:480px){
+  .form-grid{ grid-template-columns:1fr; }
+}
+.form-actions{ display:flex; gap:8px; margin-top:20px; }
+.checkbox-row{ display:flex; align-items:center; gap:8px; font-size:13.5px; }
+
+/* Tarjeta simple / caja de contenido — inferido del patrón de cita destacada del ZIP (radio 8px, borde 1px, acento de color) */
+.box{ border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; background:#fafbfe; }
+.box-accent{ border-left:4px solid var(--blue); }
+.box + .box{ margin-top:12px; }
+.box .box-title{ font-weight:700; color:var(--navy); font-size:13.5px; margin-bottom:6px; }
+.box .box-meta{ font-size:12.5px; color:var(--muted); }
+
+/* Stepper — inferido, para el recorrido del beneficiario */
+.stepper{ display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+.step{ display:flex; align-items:center; gap:6px; font-size:12px; color:var(--muted); font-weight:600; }
+.step .dot{ width:8px; height:8px; border-radius:50%; background:var(--border); }
+.step.done .dot{ background:var(--green-dark); }
+.step.current{ color:var(--blue); }
+.step.current .dot{ background:var(--blue); }
+
+/* Modal de confirmación explícita — usado en oferta controlada (nunca automático) */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(15,23,42,.45);
+  display:flex; align-items:center; justify-content:center; z-index:50;
+}
+.modal{ background:#fff; border-radius:var(--radius); padding:24px; max-width:420px; width:90%; }
+.modal h3{ font-size:16px; margin-bottom:10px; }
+.modal p{ font-size:13.5px; color:var(--dark); margin-bottom:18px; }
+.modal-actions{ display:flex; justify-content:flex-end; gap:8px; }
+
+/* Ficha de donación como modal — según referencias/Capturas/ficha-donacion-real.png */
+.modal.modal-wide{ max-width:640px; width:94%; padding:0; max-height:88vh; overflow-y:auto; }
+.ficha-modal-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 22px; border-bottom:1px solid var(--border); position:sticky; top:0; background:#fff;
+}
+.ficha-modal-header h3{ font-size:14.5px; margin:0; font-weight:700; color:var(--navy); }
+.ficha-modal-header .close-x{
+  border:none; background:none; font-size:16px; color:var(--muted); cursor:pointer; line-height:1; padding:2px;
+}
+.ficha-modal-header .close-x:hover{ color:var(--navy); }
+.ficha-modal-body{ padding:18px 22px; }
+.ficha-modal-footer{ padding:6px 22px 22px; display:flex; align-items:center; gap:12px; }
+
+.accordion-row{ background:#fff; border:1px solid var(--border); border-radius:6px; margin-bottom:8px; overflow:hidden; }
+.accordion-header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:13px 16px; cursor:pointer; font-size:13.5px; font-weight:600; color:var(--navy);
+  user-select:none; background:#fff;
+}
+.accordion-row.open .accordion-header{ background:var(--sidebar-active-bg); color:var(--blue); }
+.accordion-header .chev{ color:var(--muted); font-size:11px; transition:transform .15s ease; }
+.accordion-row.open .accordion-header .chev{ color:var(--blue); transform:rotate(180deg); }
+.accordion-content{ display:none; padding:16px; }
+.accordion-row.open .accordion-content{ display:block; }
+
+.kv-row{ display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:1px dashed var(--border); font-size:13px; }
+.kv-row:last-child{ border-bottom:none; }
+.kv-row .k{ color:var(--muted); }
+.kv-row .v{ color:var(--dark); text-align:right; }
+
+/* Mapa (placeholder visual, sin integración real) y horario semanal — Punto de recogida */
+.map-placeholder{
+  height:170px; border-radius:8px; background:#eef1e8; border:1px solid var(--border);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  color:var(--muted); font-size:12.5px; margin:12px 0;
+}
+.map-placeholder .pin{ font-size:20px; }
+
+.hours-table{ width:100%; border-collapse:collapse; font-size:12px; margin-top:4px; }
+.hours-table th{
+  background:var(--table-header-bg-app); color:var(--navy); font-weight:700;
+  padding:7px; text-align:center; text-transform:uppercase; font-size:10px; border:1px solid var(--border);
+}
+.hours-table td{ padding:7px; text-align:center; border:1px solid var(--border); color:var(--dark); }
+.hours-table td.closed{ color:var(--muted); background:#fafbfe; }
+
+/* Tarjeta "Programación de recogida" embebida en el acordeón Punto de recogida */
+.prog-card{ border:1px solid var(--border); border-radius:8px; padding:16px; background:#fff; margin-top:16px; }
+.prog-card .prog-card-title{ font-weight:700; font-size:13.5px; color:var(--navy); margin-bottom:12px; }
+
+.radio-group{ display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+.radio-row{ display:flex; align-items:center; gap:8px; font-size:13px; color:var(--dark); }
+.radio-row input{ accent-color:var(--blue); }
+
+/* Botón discreto/ghost — imita el "Programar recogida" observado en la captura real */
+.btn-modal-action{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#f5f6f8; border:1px solid var(--border); color:var(--muted);
+  padding:9px 16px; border-radius:6px; font-size:13px; font-weight:600;
+  cursor:pointer; font-family:inherit;
+}
+.btn-modal-action:hover{ background:#eef0f3; color:var(--dark); text-decoration:none; }
+
+.hint-banner{
+  display:flex; gap:10px; align-items:flex-start;
+  background:#f4f6fb; border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 14px; font-size:12.5px; color:var(--muted); margin-bottom:18px;
+}
+
+.access-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:var(--radius-pill); padding:3px; gap:2px; margin-bottom:18px; }
+.access-toggle button{
+  border:none; background:transparent; padding:7px 16px; border-radius:var(--radius-pill);
+  font-size:12.5px; font-weight:600; color:var(--muted); cursor:pointer; font-family:inherit;
+}
+.access-toggle button.active{ background:var(--blue); color:#fff; }
+
+.photo-drop{
+  border:1.5px dashed var(--border); border-radius:var(--radius); padding:28px; text-align:center;
+  color:var(--muted); font-size:13px; background:#fafbfe; cursor:pointer;
+}
+.photo-preview{ width:160px; border-radius:var(--radius); border:1px solid var(--border); display:block; }
+
+.beneficiary-frame{
+  max-width:640px; margin:24px auto; background:#fff; border-radius:var(--radius);
+  padding:24px; border:1px solid var(--border);
+}
+.beneficiary-frame .link-badge{ font-size:11px; color:var(--muted); margin-bottom:14px; font-family:var(--font-mono); }
